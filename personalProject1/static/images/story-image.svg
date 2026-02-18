@@ -1,0 +1,52 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="storyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" fill="url(#storyGrad)"/>
+  
+  <!-- Building structure -->
+  <rect x="80" y="180" width="140" height="100" fill="#2c3e50"/>
+  <rect x="75" y="175" width="150" height="10" fill="#34495e"/>
+  
+  <!-- Building floors -->
+  <rect x="90" y="190" width="120" height="25" fill="#3498db"/>
+  <rect x="90" y="220" width="120" height="25" fill="#3498db"/>
+  <rect x="90" y="250" width="120" height="25" fill="#3498db"/>
+  
+  <!-- Windows -->
+  <rect x="100" y="200" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="125" y="200" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="155" y="200" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="180" y="200" width="15" height="15" fill="#ecf0f1"/>
+  
+  <rect x="100" y="230" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="125" y="230" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="155" y="230" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="180" y="230" width="15" height="15" fill="#ecf0f1"/>
+  
+  <rect x="100" y="260" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="125" y="260" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="155" y="260" width="15" height="15" fill="#ecf0f1"/>
+  <rect x="180" y="260" width="15" height="15" fill="#ecf0f1"/>
+  
+  <!-- Entrance -->
+  <rect x="135" y="250" width="30" height="30" fill="#e74c3c"/>
+  <circle cx="160" cy="265" r="2" fill="#f1c40f"/>
+  
+  <!-- Palm trees -->
+  <rect x="45" y="260" width="8" height="30" fill="#8b4513"/>
+  <circle cx="49" cy="250" r="12" fill="#27ae60"/>
+  
+  <rect x="247" y="260" width="8" height="30" fill="#8b4513"/>
+  <circle cx="251" cy="250" r="12" fill="#27ae60"/>
+  
+  <!-- Sun -->
+  <circle cx="250" cy="50" r="20" fill="#f1c40f"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="80" cy="60" rx="25" ry="15" fill="white" opacity="0.8"/>
+  <ellipse cx="180" cy="40" rx="20" ry="12" fill="white" opacity="0.8"/>
+</svg>

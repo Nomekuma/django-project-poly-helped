@@ -1,0 +1,100 @@
+{% load static nav_active %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <title>{% block title %}The Hive - Connect, Collaborate, Create{% endblock %}</title>
+  {% block head %}{% endblock %}
+</head>
+<header>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="#home">
+          <img src="{% static 'images/logo.png' %}" alt="The Hive Logo" class="logo-img">
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="{% url 'home' %}" class="nav-link {% active 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'about' %}" class="nav-link {% active 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="/pages/forum/" class="nav-link">Forum</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'members' %}" class="nav-link {% active 'members' %}">Members</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'contact' %}" class="nav-link {% active 'contact' %}">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="/pages/register/" class="nav-link register-btn">Register</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<body>
+  {% block content %}{% endblock %}
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <a href="{% url 'home' %}">
+              <img src="{% static 'images/logo_white.png' %}" alt="The Hive Logo" class="footer-logo-img">
+            </a>
+          </div>
+          <p>Building communities, fostering innovation.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="{% url 'home' %}" class="nav-link {% active 'home' %}">Home</a></li>
+            <li> <a href="{% url 'about' %}" class="nav-link {% active 'about' %}">About</a></li>
+            <li><a href="/pages/forum/">Forum</a></li>
+            <li> <a href="{% url 'members' %}" class="nav-link {% active 'members' %}">Members</a></li>
+            <li> <a href="{% url 'contact' %}" class="nav-link {% active 'contact' %}">Contact</a></li>
+            <li><a href="/pages/register/">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">Discord</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 The Hive by Oliver L'Espar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  {% block scripts %}
+  <script src="{% static 'js/script.js' %}"></script>
+  {% endblock %}
+</body>
+
+</html>

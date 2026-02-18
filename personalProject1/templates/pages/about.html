@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - The Hive{% endblock %}
+
+{% block content %}
+    <section class="page-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 class="page-title">About Us!</h1>
+                
+                <div class="about-section">
+                    <div class="about-content">
+                        <h2>Our Mission:</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sagittis dolor et mauris tincidunt interdum. Sed pharetra massa nulla, quis hendrerit ipsum aliquet ac. Aenean congue ex vitae nulla mattis vehicula. Curabitur justo risus, euismod eu consequat convallis, molestueada a tortor. Praesent blandit ex a molestudo</p>
+                    </div>
+                    <div class="about-visual">
+                        <div class="circle-placeholder">
+                            <img src="{% static 'images/mission-image.svg' %}" alt="Our Mission" class="about-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-section reverse">
+                    <div class="about-visual">
+                        <div class="circle-placeholder">
+                            <img src="{% static 'images/story-image.svg' %}" alt="Our Story" class="about-image">
+                        </div>
+                    </div>
+                    <div class="about-content">
+                        <h2>Our Story:</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sagittis dolor et mauris tincidunt interdum. Sed pharetra massa nulla, quis hendrerit ipsum aliquet ac. Aenean congue ex vitae nulla mattis vehicula. Curabitur justo risus, euismod eu consequat convallis, molestueada a tortor. Praesent blandit ex a molestudo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

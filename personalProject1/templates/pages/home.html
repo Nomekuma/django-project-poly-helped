@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home — The Hive{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">TheHIVE: <span class="highlight">Create, Share, Learn.</span></h1>
+            <p class="hero-description">
+                A place for you, YES! for you students of the IT & Emerging Technologies, at PML.
+            </p>
+            <p class="hero-subtitle">
+                It's the place for you to share, learn, and be proud of your work.
+            </p>
+            <div class="hero-buttons">
+                <a href="/pages/register/" class="btn btn-primary">Get Started</a>
+                <a href="{% url 'about' %}" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="honeycomb">
+                <div class="hex-row row-1">
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                </div>
+                <div class="hex-row row-2">
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                </div>
+                <div class="hex-row row-3">
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                </div>
+                <div class="hex-row row-4">
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                </div>
+                <div class="hex-row row-5">
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Showcase Section -->
+<section class="video-showcase">
+    <div class="container">
+        <div class="video-content">
+            <h2 class="section-title">See The Hive in Action</h2>
+            <p class="video-description">
+                A small introduction to The Hive, showcasing our community, projects, and the vibrant atmosphere we
+                foster.
+            </p>
+            <div class="video-container">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZfCLv_6zz1M?si=bXn-jRyWuTYFyJOj"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Why Choose The Hive?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Collaborative</h3>
+                <p>Work together with like-minded individuals to achieve common goals and share knowledge.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Innovative</h3>
+                <p>Bring your creative ideas to life with cutting-edge tools and supportive community feedback.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Growth-Focused</h3>
+                <p>Accelerate your personal and professional development through mentorship and opportunities.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Join The Hive?</h2>
+            <p>Connect with innovators, creators, and visionaries in our thriving community.</p>
+            <a href="/pages/register/" class="btn btn-primary">Join Now</a>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
