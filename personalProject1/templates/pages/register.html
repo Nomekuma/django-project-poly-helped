@@ -1,88 +1,74 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% load static nav_active %}
 
 {% block title %}Registration - The Hive{% endblock %}
 {% block content %}
 
-<!-- Registration Section -->
-<section class="register-section">
-    <div class="container">
-        <div class="register-container">
-            <h1 class="register-title">Join US!</h1>
-
-            <form class="register-form" id="registerForm" method="post">
-                {% csrf_token %}
-                {% if messages %}
-                {% for message in messages %}
-                <div class="form-success show">{{ message }}</div>
-                {% endfor %}
-                {% endif %}
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" id="firstName" name="first_name" placeholder="First Name"
-                            value="{{ form.first_name.value|default_if_none:'' }}" required>
-                        {% if form.first_name.errors %}<div class="error-message">{{ form.first_name.errors.0 }}</div>{%
-                        endif %}
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="lastName" name="last_name" placeholder="Last Name"
-                            value="{{ form.last_name.value|default_if_none:'' }}" required>
-                        {% if form.last_name.errors %}<div class="error-message">{{ form.last_name.errors.0 }}</div>{%
-                        endif %}
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Email"
-                        value="{{ form.email.value|default_if_none:'' }}" required>
-                    {% if form.email.errors %}<div class="error-message">{{ form.email.errors.0 }}</div>{% endif %}
-                </div>
-
-                <div class="form-group">
-                    <input type="text" id="cohort" name="cohort" placeholder="Cohort"
-                        value="{{ form.cohort.value|default_if_none:'' }}" required>
-                    {% if form.cohort.errors %}<div class="error-message">{{ form.cohort.errors.0 }}</div>{% endif %}
-                </div>
-
-                <div class="form-group">
-                    <select id="campus" name="campus" required>
-                        <option value="">Select Campus</option>
-                        <option value="reduit" {% if form.campus.value=='reduit' %}selected{% endif %}>Reduit Campus
-                        </option>
-                        <option value="ebene" {% if form.campus.value=='ebene' %}selected{% endif %}>Ebene Campus
-                        </option>
-                        <option value="belle-rose" {% if form.campus.value=='belle-rose' %}selected{% endif %}>Belle
-                            Rose Campus</option>
-                        <option value="pompeimuse" {% if form.campus.value=='pompeimuse' %}selected{% endif %}>
-                            Pamplemousse Campus</option>
-                    </select>
-                    {% if form.campus.errors %}<div class="error-message">{{ form.campus.errors.0 }}</div>{% endif %}
-                </div>
-
-                <div class="form-group">
-                    <label for="dateOfBirth" class="date-label">Date Of Birth</label>
-                    <div class="date-input-container">
-                        <input type="date" id="dateOfBirth" name="date_of_birth"
-                            value="{{ form.date_of_birth.value|default_if_none:'' }}" required>
-                        <span class="calendar-icon">📅</span>
-                    </div>
-                    {% if form.date_of_birth.errors %}<div class="error-message">{{ form.date_of_birth.errors.0 }}</div>
+    <!-- Registration Section -->
+    <section class="register-section">
+        <div class="container">
+            <div class="register-container">
+                <h1 class="register-title">Join US!</h1>
+                
+                <form class="register-form" id="registerForm" method="post">
+                    {% csrf_token %}
+                    {% if messages %}
+                      {% for message in messages %}
+                        <div class="form-success show">{{ message }}</div>
+                      {% endfor %}
                     {% endif %}
-                </div>
 
-                <div class="form-group">
-                    <textarea id="motivation" name="motivation" placeholder="Tell Us Why you want to join us ?" rows="5"
-                        required>{{ form.motivation.value|default_if_none:'' }}</textarea>
-                    {% if form.motivation.errors %}<div class="error-message">{{ form.motivation.errors.0 }}</div>{%
-                    endif %}
-                </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="firstName" name="first_name" placeholder="First Name" value="{{ form.first_name.value|default_if_none:'' }}" required>
+                            {% if form.first_name.errors %}<div class="error-message">{{ form.first_name.errors.0 }}</div>{% endif %}
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="lastName" name="last_name" placeholder="Last Name" value="{{ form.last_name.value|default_if_none:'' }}" required>
+                            {% if form.last_name.errors %}<div class="error-message">{{ form.last_name.errors.0 }}</div>{% endif %}
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <button type="submit" class="submit-btn">Join The Hive</button>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" value="{{ form.email.value|default_if_none:'' }}" required>
+                        {% if form.email.errors %}<div class="error-message">{{ form.email.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="cohort" name="cohort" placeholder="Cohort" value="{{ form.cohort.value|default_if_none:'' }}" required>
+                        {% if form.cohort.errors %}<div class="error-message">{{ form.cohort.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <select id="campus" name="campus" required>
+                            <option value="">Select Campus</option>
+                            <option value="reduit" {% if form.campus.value == 'reduit' %}selected{% endif %}>Reduit Campus</option>
+                            <option value="ebene" {% if form.campus.value == 'ebene' %}selected{% endif %}>Ebene Campus</option>
+                            <option value="belle-rose" {% if form.campus.value == 'belle-rose' %}selected{% endif %}>Belle Rose Campus</option>
+                            <option value="pompeimuse" {% if form.campus.value == 'pompeimuse' %}selected{% endif %}>Pamplemousse Campus</option>
+                        </select>
+                        {% if form.campus.errors %}<div class="error-message">{{ form.campus.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dateOfBirth" class="date-label">Date Of Birth</label>
+                        <div class="date-input-container">
+                            <input type="date" id="dateOfBirth" name="date_of_birth" value="{{ form.date_of_birth.value|default_if_none:'' }}" required>
+                            <span class="calendar-icon">📅</span>
+                        </div>
+                        {% if form.date_of_birth.errors %}<div class="error-message">{{ form.date_of_birth.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="motivation" name="motivation" placeholder="Tell Us Why you want to join us ?" rows="5" required>{{ form.motivation.value|default_if_none:'' }}</textarea>
+                        {% if form.motivation.errors %}<div class="error-message">{{ form.motivation.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="submit-btn">Join The Hive</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
