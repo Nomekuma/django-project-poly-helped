@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static nav_active %}
+
+{% block title %}Login — The Hive{% endblock %}
+
+{% block content %}
+<section class="register-section">
+  <div class="container">
+    <div class="register-container">
+      <h1 class="register-title">Login</h1>
+      <form method="post" class="register-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Enter your registered email" required>
+        </div>
+        <div class="form-group">
+          <button class="submit-btn" type="submit">Login</button>
+        </div>
+        <div class="form-group">
+          <a href="{% url 'register' %}" class="nav-link" style="color: white !important;">Register</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

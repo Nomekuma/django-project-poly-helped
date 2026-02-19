@@ -13,46 +13,56 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   <title>{% block title %}The Hive - Connect, Collaborate, Create{% endblock %}</title>
   {% block head %}{% endblock %}
+
 </head>
-<header>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <a href="{% url 'home' %}">
-          <img src="{% static 'images/logo.png' %}" alt="The Hive Logo" class="logo-img">
-        </a>
-      </div>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <a href="{% url 'home' %}" class="nav-link {% active 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'about' %}" class="nav-link {% active 'about' %}">About</a>
-        </li>
-        <li class="nav-item">
-          <a href="/pages/forum/" class="nav-link">Forum</a>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'members' %}" class="nav-link {% active 'members' %}">Members</a>
-        </li>
-        <li class="nav-item">
-          <a href="{% url 'contact' %}" class="nav-link {% active 'contact' %}">Contact</a>
-        </li>
-        <li class="nav-item">
-          <a href="/pages/register/" class="nav-link register-btn">Register</a>
-        </li>
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-    </div>
-  </nav>
-</header>
 
 <body>
+  <header>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="The Hive Logo" class="logo-img">
+          </a>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="{% url 'home' %}" class="nav-link {% active 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'about' %}" class="nav-link {% active 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'forum' %}" class="nav-link {% active 'forum' %}">Forum</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'members' %}" class="nav-link {% active 'members' %}">Members</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'contact' %}" class="nav-link {% active 'contact' %}">Contact</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'logout' %}" class="nav-link">Logout - {{ request.user.first_name|default:request.user.username }}</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'register' %}" class="nav-link register-btn">Register</a>
+          </li>
+          {% endif %}
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+  </header>
   {% block content %}{% endblock %}
   <!-- Footer -->
   <footer class="footer">
@@ -71,10 +81,10 @@
           <ul>
             <li><a href="{% url 'home' %}" class="nav-link {% active 'home' %}">Home</a></li>
             <li> <a href="{% url 'about' %}" class="nav-link {% active 'about' %}">About</a></li>
-            <li><a href="/pages/forum/">Forum</a></li>
+            <li> <a href="{% url 'forum' %}" class="nav-link {% active 'forum' %}">Forum</a></li>
             <li> <a href="{% url 'members' %}" class="nav-link {% active 'members' %}">Members</a></li>
             <li> <a href="{% url 'contact' %}" class="nav-link {% active 'contact' %}">Contact</a></li>
-            <li><a href="/pages/register/">Register</a></li>
+            <li><a href="{% url 'register' %}" class="nav-link {% active 'register' %}">Register</a></li>
           </ul>
         </div>
         <div class="footer-section">

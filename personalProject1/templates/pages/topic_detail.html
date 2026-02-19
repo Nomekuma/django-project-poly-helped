@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static nav_active %}
+
+{% block title %}{{ topic.title }} — The Hive{% endblock %}
+
+{% block content %}
+<section class="page-content">
+  <div class="container">
+    <div class="content-wrapper">
+      <h1 class="page-title">{{ topic.title }}</h1>
+      <p class="page-description">Category: {{ topic.get_category_display }} — Posted by {{ topic.author_name }}</p>
+
+      <div class="topic-content-text">
+        {% for post in posts %}
+        <div class="topic-item">
+          <div class="topic-header">
+            <strong>{{ post.author_name|default:"Anonymous" }}</strong>
+            <small>{{ post.created_at }}</small>
+          </div>
+          <div class="accordion-content">
+            <p>{{ post.content|linebreaksbr }}</p>
+          </div>
+        </div>
+        {% empty %}
+        <p>No posts yet — be the first to reply.</p>
+        {% endfor %}
+      </div>
+
+      <div class="join-forum">
+        <h2>Reply</h2>
+        {% if request.user.is_authenticated %}
+        <form method="post" class="register-form">
+          {% csrf_token %}
+          <div class="form-group">
+            <input type="text" name="author_name" placeholder="Your name (optional)" />
+          </div>
+          <div class="form-group">
+            <textarea name="content" placeholder="Write your reply..." rows="5" required></textarea>
+          </div>
+          <div class="form-group">
+            <button class="submit-btn" type="submit">Post Reply</button>
+          </div>
+        </form>
+        {% else %}
+        <p>You must be registered and logged in to reply.</p>
+        <a href="{% url 'login' %}" class="btn">Login</a>
+        <a href="{% url 'register' %}" class="btn">Register</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -11,182 +11,40 @@
 
             <div class="community-layout">
                 <div class="hot-topics">
-                    <h2>Hot Topics</h2>
+                    <h2>Members</h2>
                     <div class="topic-list">
-                        <div class="topic-item accordion-item">
-                            <div class="topic-header accordion-header" onclick="toggleAccordion(this)">
-                                <h3>Is Classe365 Down ?</h3>
-                                <span class="accordion-icon">+</span>
+                        {% for m in members %}
+                        <div class="topic-item">
+                            <div class="topic-header">
+                                <h3>{{ m.name }}</h3>
+                                <div class="last-activity">Joined {{ m.joined|date:"SHORT_DATE_FORMAT" }}</div>
                             </div>
-                            <div class="topic-content accordion-content">
-                                <div class="topic-details">
-                                    <p><strong>Started by:</strong> Tyler | <strong>Replies:</strong> 23 |
-                                        <strong>Views:</strong> 156</p>
-                                    <p class="topic-description">Students experiencing login issues with Classe365
-                                        platform. Multiple reports of server timeouts and slow loading times.</p>
-                                    <div class="topic-content-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</p>
-                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                                            sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </div>
-                                    <div class="topic-tags">
-                                        <span class="tag">Technical Issue</span>
-                                        <span class="tag">Urgent</span>
-                                    </div>
-                                    <p class="last-activity">Last activity: 5 minutes ago by Jeremy</p>
-                                </div>
+                            <div class="topic-details">
+                                <p>Contributions: {{ m.contributions }} · Topics: {{ m.topics }} · Posts: {{ m.posts }}
+                                </p>
+                                <p class="topic-description">{{ m.email }}</p>
                             </div>
                         </div>
-                        <div class="topic-item accordion-item">
-                            <div class="topic-header accordion-header" onclick="toggleAccordion(this)">
-                                <h3>When are exams ?</h3>
-                                <span class="accordion-icon">+</span>
-                            </div>
-                            <div class="topic-content accordion-content">
-                                <div class="topic-details">
-                                    <p><strong>Started by:</strong> Thomas | <strong>Replies:</strong> 18 |
-                                        <strong>Views:</strong> 89</p>
-                                    <p class="topic-description">Discussion about upcoming examination schedules and
-                                        important dates for all courses.</p>
-                                    <div class="topic-content-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula
-                                            nulla at est tincidunt, id tempor nulla bibendum. Pellentesque habitant
-                                            morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                                            cubilia curae; Nulla facilisi. Sed auctor neque eu tellus rhoncus ut
-                                            eleifend nibh porttitor.</p>
-                                        <p>Suspendisse potenti. Cras in purus mauris, eu tempor nunc. Integer non leo a
-                                            nulla tincidunt cursus at vel massa.</p>
-                                    </div>
-                                    <div class="topic-tags">
-                                        <span class="tag">Academic</span>
-                                        <span class="tag">Important</span>
-                                    </div>
-                                    <p class="last-activity">Last activity: 1 hour ago by Ethan</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="topic-item accordion-item">
-                            <div class="topic-header accordion-header" onclick="toggleAccordion(this)">
-                                <h3>Help with coding ?</h3>
-                                <span class="accordion-icon">+</span>
-                            </div>
-                            <div class="topic-content accordion-content">
-                                <div class="topic-details">
-                                    <p><strong>Started by:</strong> Jeremy | <strong>Replies:</strong> 12 |
-                                        <strong>Views:</strong> 67</p>
-                                    <p class="topic-description">Need assistance with JavaScript debugging and React
-                                        component optimization techniques.</p>
-                                    <div class="topic-content-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce congue, tellus
-                                            eget rhoncus fermentum, sem mauris ullamcorper lorem, sit amet vulputate
-                                            ante magna ac nulla.</p>
-                                        <p>Aliquam erat volutpat. Morbi imperdiet, mauris ac auctor dictum, nisl ligula
-                                            euismod nunc, id cursus neque eros ut kunming. Sed blandit molestie libero,
-                                            sit amet commodo magna eros quis urna.</p>
-                                        <p>Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo.
-                                            Sed fringilla mauris sit amet nibh.</p>
-                                    </div>
-                                    <div class="topic-tags">
-                                        <span class="tag">Programming</span>
-                                        <span class="tag">JavaScript</span>
-                                        <span class="tag">React</span>
-                                    </div>
-                                    <p class="last-activity">Last activity: 2 hours ago by Tyler</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="topic-item accordion-item">
-                            <div class="topic-header accordion-header" onclick="toggleAccordion(this)">
-                                <h3>Online classes now ?</h3>
-                                <span class="accordion-icon">+</span>
-                            </div>
-                            <div class="topic-content accordion-content">
-                                <div class="topic-details">
-                                    <p><strong>Started by:</strong> Ethan | <strong>Replies:</strong> 8 |
-                                        <strong>Views:</strong> 45</p>
-                                    <p class="topic-description">Discussing the shift to online learning and best
-                                        practices for remote study sessions.</p>
-                                    <div class="topic-content-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit nisi
-                                            sed sollicitudin pellentesque. Nunc posuere purus rhoncus pulvinar aliquam.
-                                        </p>
-                                        <p>Ut aliquet tristique nisl vitae volutpat. Nulla aliquet porttitor venenatis.
-                                            Donec a dui et dui fringilla consectetur id nec massa.</p>
-                                        <p>Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero. Vivamus
-                                            pharetra posuere sapien.</p>
-                                    </div>
-                                    <div class="topic-tags">
-                                        <span class="tag">Academic</span>
-                                        <span class="tag">Online Learning</span>
-                                    </div>
-                                    <p class="last-activity">Last activity: 3 hours ago by Thomas</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="topic-item accordion-item">
-                            <div class="topic-header accordion-header" onclick="toggleAccordion(this)">
-                                <h3>Game Development Workshop</h3>
-                                <span class="accordion-icon">+</span>
-                            </div>
-                            <div class="topic-content accordion-content">
-                                <div class="topic-details">
-                                    <p><strong>Started by:</strong> Tyler | <strong>Replies:</strong> 15 |
-                                        <strong>Views:</strong> 102</p>
-                                    <p class="topic-description">Planning a workshop on Unity game development. Looking
-                                        for participants and discussing project ideas.</p>
-                                    <div class="topic-content-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue erat
-                                            at massa. Sed cursus turpis a purus aliquam cursus.</p>
-                                        <p>Integer sagittis. Fusce tellus odio, dapibus id fermentum quis, suscipit id
-                                            erat. Donec non enim in turpis pulvinar facilisis. Ut felis.</p>
-                                        <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu
-                                            vulputate magna eros eu erat. Aliquam erat volutpat.</p>
-                                        <p>Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</p>
-                                    </div>
-                                    <div class="topic-tags">
-                                        <span class="tag">Workshop</span>
-                                        <span class="tag">Game Dev</span>
-                                        <span class="tag">Unity</span>
-                                    </div>
-                                    <p class="last-activity">Last activity: 1 day ago by Jeremy</p>
-                                </div>
-                            </div>
-                        </div>
+                        {% empty %}
+                        <p>No members yet.</p>
+                        {% endfor %}
                     </div>
                 </div>
 
                 <div class="top-contributors">
                     <h2>Top Contributors</h2>
                     <div class="contributors-list">
+                        {% for c in top_contributors %}
                         <div class="contributor-item">
                             <div class="contributor-avatar"></div>
                             <div class="contributor-info">
-                                <p><strong>Tyler - DCY13 - LV 13</strong></p>
+                                <p><strong>{{ c.name }}</strong></p>
+                                <p>{{ c.contributions }} contributions • {{ c.posts }} posts</p>
                             </div>
                         </div>
-                        <div class="contributor-item">
-                            <div class="contributor-avatar"></div>
-                            <div class="contributor-info">
-                                <p><strong>Jeremy - DCY13 - LV 10</strong></p>
-                            </div>
-                        </div>
-                        <div class="contributor-item">
-                            <div class="contributor-avatar"></div>
-                            <div class="contributor-info">
-                                <p><strong>Thomas - DCY13 - LV 09</strong></p>
-                            </div>
-                        </div>
-                        <div class="contributor-item">
-                            <div class="contributor-avatar"></div>
-                            <div class="contributor-info">
-                                <p><strong>Ethan - DCY13 - LV 05</strong></p>
-                            </div>
-                        </div>
+                        {% empty %}
+                        <p>No contributors yet.</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

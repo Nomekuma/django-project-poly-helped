@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static nav_active %}
+
+{% block title %}Forum — The Hive{% endblock %}
+
+{% block content %}
+ <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1 class="page-title">Forum Discussion</h1>
+                
+                <div class="forum-layout">
+                    <div class="forum-categories">
+                        <h2>Topics</h2>
+                        <div class="topic-list">
+                            {% for topic in topics %}
+                            <div class="topic-item">
+                                <div class="topic-header">
+                                    <h3><a href="{% url 'topic_detail' topic.pk %}">{{ topic.title }}</a></h3>
+                                    <div class="last-activity">{{ topic.created_at|date:"SHORT_DATETIME_FORMAT" }}</div>
+                                </div>
+                                <div class="topic-details">
+                                    <p>Category: {{ topic.get_category_display }} · By {{ topic.author_name|default:"Anonymous" }}</p>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p>No topics yet. Be the first to create one.</p>
+                            {% endfor %}
+                        </div>
+                        
+                                                <div class="join-forum" style="margin-top:1.5rem;">
+                                                    <h3>Create Topic</h3>
+                                                    {% if request.user.is_authenticated %}
+                                                    <form method="post" class="register-form">
+                                                        {% csrf_token %}
+                                                        <div class="form-group">
+                                                            <input type="text" name="title" placeholder="Topic title" required />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <select name="category" required>
+                                                                <option value="general">General Discussion</option>
+                                                                <option value="tech">Technical Help</option>
+                                                                <option value="study">Study Groups</option>
+                                                                <option value="games">Game Development</option>
+                                                                <option value="security">Cybersecurity</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button class="submit-btn" type="submit" name="create_topic">Create Topic</button>
+                                                        </div>
+                                                    </form>
+                                                    {% else %}
+                                                        <p>You must be logged in to create topics.</p>
+                                                        <a href="{% url 'login' %}" class="nav-link">Login</a>
+                                                        <a href="{% url 'register' %}" class="nav-link">Register</a>
+                                                    {% endif %}
+                                                    <div style="margin-top:0.75rem">
+                                                        {% if request.user.is_authenticated %}
+                                                            <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                                                        {% else %}
+                                                            <a href="{% url 'login' %}" class="nav-link">Login</a>
+                                                            <a href="{% url 'register' %}" class="nav-link">Register</a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                    </div>
+
+                    <div class="forum-sidebar">
+                        <div class="recent-activity">
+                            <h2>Recent Activity</h2>
+                            <div class="activity-list">
+                              {% for post in recent_posts %}
+                                <div class="activity-item">
+                                    <div class="activity-user">{{ post.author_name|default:"Anonymous" }}</div>
+                                    <div class="activity-action">replied to "<a href='{% url 'topic_detail' post.topic.pk %}'>{{ post.topic.title }}</a>"</div>
+                                    <div class="activity-time">{{ post.created_at|timesince }} ago</div>
+                                </div>
+                              {% empty %}
+                                <p>No recent activity</p>
+                              {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="forum-stats">
+                            <h2>Forum Stats</h2>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">{{ total_topics }}</div>
+                                    <div class="stat-label">Total Topics</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">{{ total_posts }}</div>
+                                    <div class="stat-label">Total Posts</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">{{ active_members }}</div>
+                                    <div class="stat-label">Active Members</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">{{ online_now }}</div>
+                                    <div class="stat-label">Online Now</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="join-forum">
+                    <h2>Join the Discussion!</h2>
+                    <p>Register to participate in our vibrant community discussions and connect with fellow IT students.</p>
+                    <!-- <a href="register/register.html" class="btn btn-primary">Register to Join Forum</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
