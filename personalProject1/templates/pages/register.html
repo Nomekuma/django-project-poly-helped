@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <select id="campus" name="campus" required>
+                        <select id="campus" name="campus" required style="color: lightgrey;">
                             <option value="">Select Campus</option>
                             <option value="reduit" {% if form.campus.value == 'reduit' %}selected{% endif %}>Reduit Campus</option>
                             <option value="ebene" {% if form.campus.value == 'ebene' %}selected{% endif %}>Ebene Campus</option>
@@ -51,10 +51,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="dateOfBirth" class="date-label">Date Of Birth</label>
+                        <label for="dateOfBirth" class="date-label" style="color: lightgrey;">Date Of Birth</label>
                         <div class="date-input-container">
-                            <input type="date" id="dateOfBirth" name="date_of_birth" value="{{ form.date_of_birth.value|default_if_none:'' }}" required>
-                            <span class="calendar-icon">📅</span>
+                            <input type="date" id="dateOfBirth" name="date_of_birth" style="color:lightgrey;" value="{{ form.date_of_birth.value|default_if_none:'' }}" required>
+                            <!-- <span class="calendar-icon">📅</span> -->
                         </div>
                         {% if form.date_of_birth.errors %}<div class="error-message">{{ form.date_of_birth.errors.0 }}</div>{% endif %}
                     </div>

@@ -8,13 +8,14 @@
   <div class="container">
     <div class="content-wrapper">
       <h1 class="page-title">{{ topic.title }}</h1>
-      <p class="page-description">Category: {{ topic.get_category_display }} — Posted by {{ topic.author_name }}</p>
+      <p class="page-description">Category: {{ topic.get_category_display }} — Posted by {{ topic.author_name }} </p>
 
       <div class="topic-content-text">
         {% for post in posts %}
         <div class="topic-item">
           <div class="topic-header">
             <strong>{{ post.author_name|default:"Anonymous" }}</strong>
+            <p>{{post.content}}</p>
             <small>{{ post.created_at }}</small>
           </div>
           <div class="accordion-content">

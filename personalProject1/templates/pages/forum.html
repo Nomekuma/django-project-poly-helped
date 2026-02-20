@@ -51,16 +51,15 @@
                                                         </div>
                                                     </form>
                                                     {% else %}
+                                                    <div style="display: flex; flex-direction: column;">
                                                         <p>You must be logged in to create topics.</p>
                                                         <a href="{% url 'login' %}" class="nav-link">Login</a>
                                                         <a href="{% url 'register' %}" class="nav-link">Register</a>
+                                                        </div>
                                                     {% endif %}
                                                     <div style="margin-top:0.75rem">
                                                         {% if request.user.is_authenticated %}
                                                             <a href="{% url 'logout' %}" class="nav-link">Logout</a>
-                                                        {% else %}
-                                                            <a href="{% url 'login' %}" class="nav-link">Login</a>
-                                                            <a href="{% url 'register' %}" class="nav-link">Register</a>
                                                         {% endif %}
                                                     </div>
                                                 </div>
