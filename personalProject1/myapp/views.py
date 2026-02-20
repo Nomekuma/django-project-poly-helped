@@ -210,6 +210,9 @@ def login_view(request):
             User = get_user_model()
             user = User.objects.filter(username__iexact=email).first()
             if not user:
+                # Fallback: try matching by the User.
+                user = User.objects.filter(email__iexact=email).first()
+            if not user:
                 # Try to find a registration record and create a User from it
                 reg = Registration.objects.filter(email__iexact=email).first()
                 if reg:
